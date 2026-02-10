@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Little Journey 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background: radial-gradient(circle at top, #0b0f2b, #000);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+/* 🌌 STARS */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, white, transparent),
+    radial-gradient(1px 1px at 70% 60%, white, transparent),
+    radial-gradient(1px 1px at 40% 80%, white, transparent);
+  animation: twinkle 6s infinite alternate;
+  opacity:.6;
+}
+
+@keyframes twinkle{
+  from{opacity:.4}
+  to{opacity:.8}
+}
+
+.container{
+  width:100%;
+  max-width:420px;
+  background:rgba(255,255,255,0.05);
+  border-radius:20px;
+  padding:25px;
+  backdrop-filter: blur(10px);
+  box-shadow:0 0 25px rgba(255,255,255,0.15);
+}
+
+/* 💖 MAIN */
+h1{
+  text-align:center;
+  font-size:1.8rem;
+  margin-bottom:10px;
+}
+
+.dialogue{
+  text-align:center;
+  font-size:1rem;
+  line-height:1.6;
+  opacity:.9;
+  margin-bottom:20px;
+}
+
+/* 🎵 MUSIC */
+.music-btn{
+  display:block;
+  margin:0 auto 20px;
+  padding:10px 20px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff5fa2,#ff8fcf);
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+}
+
+/* 🛣️ JOURNEY BOX */
+.journey-box{
+  background:rgba(0,0,0,0.4);
+  border-radius:15px;
+  padding:15px;
+  margin:20px 0;
+}
+
+.journey-box h3{
+  text-align:center;
+  margin-bottom:10px;
+  font-size:1.1rem;
+}
+
+.road{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.9rem;
+}
+
+.point{
+  background:#ff7eb3;
+  padding:6px 10px;
+  border-radius:12px;
+  font-size:.8rem;
+}
+
+.line{
+  flex:1;
+  height:2px;
+  background:linear-gradient(to right,#ff7eb3,#fff);
+  margin:0 8px;
+}
+
+/* 💝 BUTTONS */
+.btn{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  border:none;
+  border-radius:30px;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.yes{
+  background:linear-gradient(135deg,#ff4d6d,#ff85a1);
+  color:#fff;
+}
+
+.more{
+  background:transparent;
+  border:1px solid #ff7eb3;
+  color:#ffb3d9;
+}
+
+/* 💌 SURPRISE TEXT */
+#surpriseText{
+  display:none;
+  text-align:center;
+  margin-top:15px;
+  font-size:.95rem;
+  animation: fade 1s ease;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(10px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+.btn{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  border-radius:30px;
+  font-size:15px;
+  cursor:pointer;
+  display:block;
+  text-align:center;
+  text-decoration:none;
+}
+
+.more{
+  background:transparent;
+  border:1px solid #ff7eb3;
+  color:#ffb3d9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🌙 Under the Same Sky</h1>
+
+  <div class="dialogue">
+    <b>Priyanshi 💖</b><br>
+    Us din mile… baatein hui… terrace pe khade hokar  
+    sirf tum aur main 🌌  
+    aur last me woh hug… jo sab kuch keh gaya 🤍
+  </div>
+
+  <button class="music-btn" onclick="playMusic()">🎵 Play Music</button>
+
+  <!-- 🛣️ JOURNEY -->
+  <div class="journey-box">
+    <h3>🏠 घर से घर तक का सफ़र</h3>
+    <div class="road">
+      <div class="point">My Home</div>
+      <div class="line"></div>
+      <div class="point">Meeting</div>
+      <div class="line"></div>
+      <div class="point">Your Home</div>
+    </div>
+  </div>
+
+  <button class="btn yes" onclick="yesClick()">💖 Just Tell Me YES</button>
+
+<a href="terris.html" class="btn more">
+  ✨ Click here – more surprises
+</a>
+
+  <div id="surpriseText">
+    Chahe distance ho ya time,<br>
+    mera favorite safar tum tak hi aata hai 💫
+  </div>
+
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="yaara teri yaari ko .mp4" type="audio/mpeg">
+</audio>
+
+<script>
+function playMusic(){
+  document.getElementById("bgMusic").play();
+}
+
+function yesClick(){
+  window.location.href =
+  "https://https://www.snapchat.com/add/priyanshimo2031?share_id=jorrpDu7iMs&locale=en-IN";
+}
+
+function surprise(){
+  document.getElementById("surpriseText").style.display="block";
+}
+</script>
+
+</body>
+</html>

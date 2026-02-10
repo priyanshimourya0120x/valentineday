@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Besties → Love 🌙💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(#020111,#191970,#0b1c2d);
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+}
+
+h2{margin:12px 0 4px;font-size:22px}
+p{margin:0 0 10px;color:#ccc;font-size:14px}
+
+.scene{
+  position:relative;
+  width:100%;
+  height:78vh;
+}
+
+/* ===== Stars ===== */
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 2s infinite alternate;
+}
+@keyframes twinkle{
+  from{opacity:.2}
+  to{opacity:1}
+}
+
+/* ===== Stick Figures ===== */
+.stick{
+  position:absolute;
+  bottom:95px;
+  transition:all 2s ease;
+}
+
+/* Head with smile */
+.head{
+  width:24px;
+  height:24px;
+  border:2px solid #fff;
+  border-radius:50%;
+  margin:auto;
+  position:relative;
+}
+.head::before{
+  content:"• •";
+  position:absolute;
+  top:4px;
+  left:4px;
+  font-size:10px;
+}
+.head::after{
+  content:")";
+  position:absolute;
+  bottom:2px;
+  left:9px;
+  font-size:12px;
+}
+
+.body{
+  width:3px;
+  height:42px;
+  background:#fff;
+  margin:auto;
+}
+
+.arms{
+  width:38px;
+  height:3px;
+  background:#fff;
+  margin:-28px auto 0;
+}
+
+.legs{
+  width:3px;
+  height:40px;
+  background:#fff;
+  margin:auto;
+  position:relative;
+}
+.legs:before,.legs:after{
+  content:'';
+  position:absolute;
+  width:3px;
+  height:30px;
+  background:#fff;
+  bottom:-28px;
+}
+.legs:before{left:-10px;transform:rotate(18deg)}
+.legs:after{right:-10px;transform:rotate(-18deg)}
+
+.bestie1{left:28%}
+.bestie2{left:65%}
+
+/* Hug */
+.hug .arms{width:18px}
+
+/* ===== Bubble ===== */
+.bubble{
+  position:absolute;
+  background:#fff;
+  color:#000;
+  padding:8px 14px;
+  border-radius:18px;
+  font-size:13px;
+  display:none;
+  max-width:200px;
+}
+
+/* ===== Terrace + Stairs ===== */
+.terrace{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:120px;
+  background:#111;
+  border-top:3px solid #aaa;
+}
+
+.stairs{
+  position:absolute;
+  bottom:0;
+  left:10%;
+}
+.step{
+  width:80px;
+  height:14px;
+  background:#ffffff;
+  margin-bottom:4px;
+  border-top:1px solid #faf8f8;
+}
+
+/* ===== Hearts ===== */
+.heart{
+  position:absolute;
+  font-size:22px;
+  animation:float 3s linear;
+}
+@keyframes float{
+  from{transform:translateY(0) scale(1);opacity:1}
+  to{transform:translateY(-140px) scale(1.6);opacity:0}
+}
+
+/* ===== Controls ===== */
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+button{
+  padding:12px 24px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff7eb3,#ff758c);
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.music-btn{
+  background:linear-gradient(45deg,#4facfe,#00f2fe);
+}
+
+/* Small link button */
+.link-btn{
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  background:#fff;
+  color:#000;
+  padding:6px 12px;
+  font-size:12px;
+  border-radius:20px;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🌙 From Besties to Love 💖</h2>
+<p>Priyanshi & Khushi</p>
+
+<div class="controls">
+  <button onclick="startStory()">▶ Play Story</button>
+  <button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
+</div>
+
+<audio id="bgm" loop>
+  <source src="relation .mp4">
+</audio>
+
+<div class="scene" id="scene">
+
+<script>
+for(let i=0;i<60;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*60+"%";
+  scene.appendChild(s);
+}
+</script>
+
+<!-- Besties -->
+<div id="a" class="stick bestie1">
+  <div class="head"></div><div class="body"></div>
+  <div class="arms"></div><div class="legs"></div>
+</div>
+
+<div id="s" class="stick bestie2">
+  <div class="head"></div><div class="body"></div>
+  <div class="arms"></div><div class="legs"></div>
+</div>
+
+<!-- Dialogues -->
+<div id="d1" class="bubble" style="left:18%;bottom:210px">
+  Khushi: tere saath mil kar acha lagta hai thank you 🌙
+</div>
+<div id="d2" class="bubble" style="left:55%;bottom:210px">
+  Priyanshi: But  ye sab sirf tere liye ❤️
+</div>
+
+<div id="proposal" class="bubble" style="left:38%;bottom:230px">
+  Will you be more than my bestie or forever bestie? 💍
+</div>
+<div id="proposal" class="bubble" style="left:38%;bottom:230px">
+  message me in answer
+</div>
+
+<div id="hearts"></div>
+
+<!-- Stairs -->
+<div class="stairs">
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+  <div class="step"></div>
+</div>
+
+<div class="terrace"></div>
+
+<a href="index.html" class="link-btn">Click here</a>
+
+</div>
+
+<script>
+let music=false;
+function toggleMusic(){
+  let m=bgm;
+  music?m.pause():m.play();
+  music=!music;
+}
+
+function startStory(){
+  a.style.left="45%";
+  s.style.left="50%";
+
+  setTimeout(()=>d1.style.display="block",2000);
+  setTimeout(()=>d2.style.display="block",3500);
+
+  setTimeout(()=>{
+    d1.style.display="none";
+    d2.style.display="none";
+    a.style.bottom="120px";
+    s.style.bottom="120px";
+  },5500);
+
+  setTimeout(makeHearts,7500);
+
+  setTimeout(()=>{
+    a.classList.add("hug");
+    s.classList.add("hug");
+    proposal.style.display="block";
+  },10000);
+}
+
+function makeHearts(){
+  for(let i=0;i<12;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=(46+Math.random()*8)+"%";
+    h.style.bottom="150px";
+    hearts.appendChild(h);
+    setTimeout(()=>h.remove(),3000);
+  }
+}
+</script>
+
+</body>
+</html>

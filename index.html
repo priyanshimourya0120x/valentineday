@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#ff416c,#ff758c,#ffb3ba);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  padding:25px 10px;
+}
+
+.container{
+  width:100%;
+  max-width:850px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(14px);
+  border-radius:25px;
+  padding:30px 20px 40px;
+  text-align:center;
+  box-shadow:0 25px 45px rgba(0,0,0,0.3);
+}
+
+/* Heading */
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:3rem;
+  margin-bottom:10px;
+}
+
+p{
+  font-size:1.1rem;
+  line-height:1.6;
+  margin:10px auto;
+  max-width:650px;
+}
+
+/* Buttons */
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:14px;
+  margin:25px 0;
+}
+
+button,.nav-btn{
+  padding:14px 28px;
+  border:none;
+  border-radius:40px;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  background:linear-gradient(45deg,#fff,#ffe1ec);
+  color:#ff416c;
+  text-decoration:none;
+  transition:0.35s;
+  box-shadow:0 10px 22px rgba(0,0,0,0.25);
+}
+
+button:hover,.nav-btn:hover{
+  transform:scale(1.08);
+}
+
+/* Hidden sections */
+.hidden{display:none;}
+.show{display:block;}
+
+/* Music select */
+select{
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  font-size:15px;
+  margin-top:10px;
+}
+
+/* Proposal */
+.proposal{
+  margin-top:30px;
+  padding:25px 15px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.18);
+}
+
+.proposal h2{
+  font-family:'Dancing Script',cursive;
+  font-size:2.2rem;
+  margin-bottom:15px;
+}
+
+.proposal button{
+  margin:8px;
+  padding:14px 32px;
+  font-size:17px;
+  border-radius:45px;
+}
+
+.yes{
+  background:linear-gradient(45deg,#00ff99,#00cc88);
+  color:#000;
+}
+.no{
+  background:linear-gradient(45deg,#ff0033,#cc0022);
+  color:#fff;
+}
+
+/* Floating hearts */
+.heart{
+  position:fixed;
+  bottom:-40px;
+  font-size:28px;
+  animation:floatUp 6s linear forwards;
+}
+@keyframes floatUp{
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* Rose petals */
+.petal{
+  position:fixed;
+  top:-40px;
+  font-size:26px;
+  animation:fall 5s linear forwards;
+}
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* Dance */
+.dancer{
+  position:fixed;
+  bottom:15px;
+  font-size:40px;
+  animation:dance 1s infinite alternate;
+}
+@keyframes dance{
+  from{transform:rotate(-15deg);}
+  to{transform:rotate(15deg);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💖 Happy Valentine’s Day 💖</h1>
+<p>
+Like roses need sunshine, my heart needs you 🌹  
+Clicks on Buttons and mehsus kr is effort or pyaar ko  ✨
+</p>
+
+<div class="buttons">
+  <button onclick="toggleLove()">💌 Love Message</button>
+  <a href="gallery.html" class="nav-btn">📸 Gallery</a>
+  <button onclick="toggleMusic()">🎶 Play Music</button>
+  <button onclick="danceMagic()">💃 Dance</button>
+  <button onclick="roseMagic()">🌹 Rose Magic</button>
+</div>
+
+<p id="loveText" class="hidden">
+🌸 You are my today, my tomorrow, and my forever.<br>
+mere dil mein tere siva koi aata hi nahi hai .... aur aane ki koshish karta hai to mein ijjaat se use mna kar deti hu we were good friends keh deti hu ....💕
+</p>
+
+<div id="musicBox" class="hidden">
+  <select onchange="playMusic(this.value)">
+    <option value="">🎧 Select Romantic Song</option>
+    <option value="dooran dooran song.mp4">My Situation song</option>
+    <option value="ek samay mein to tere dil m bsa tha.mp4">My first sended Song</option>
+    <option value="relation.mp4">Her Sending song</option>
+     <option value="rani teri.mp4">Valentine Special day song</option>
+  </select>
+</div>
+
+<div class="proposal">
+  <h2>💍 Will You Be My Valentine?</h2>
+  <button class="yes" onclick="yesClick()">YES 💖</button>
+  <button class="no" onclick="noClick()">NO 🙈</button>
+  <p id="reply"></p>
+</div>
+
+<audio id="bgMusic" loop></audio>
+
+</div>
+
+<script>
+// Hearts
+setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},1200);
+
+function toggleLove(){
+  document.getElementById("loveText").classList.toggle("show");
+}
+
+function toggleMusic(){
+  document.getElementById("musicBox").classList.toggle("show");
+}
+
+function playMusic(src){
+  let music=document.getElementById("bgMusic");
+  if(src){
+    music.src=src;
+    music.play();
+  }
+}
+
+function roseMagic(){
+  for(let i=0;i<18;i++){
+    let p=document.createElement("div");
+    p.className="petal";
+    p.innerHTML="🌹";
+    p.style.left=Math.random()*100+"vw";
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),5000);
+  }
+}
+
+function danceMagic(){
+  for(let i=0;i<6;i++){
+    let d=document.createElement("div");
+    d.className="dancer";
+    d.innerHTML=Math.random()>0.5?"💃":"🕺";
+    d.style.left=Math.random()*90+"vw";
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(),4000);
+  }
+}
+
+function yesClick(){
+  roseMagic();
+
+  const msg = "I said YES 💖 You are my Valentine 🌹";
+  navigator.clipboard.writeText(msg).then(()=>{
+    alert("Message copied 📋\nSnapchat open ho raha hai 👻\apni current situaiton feelings ko likho good or bad and send kar do 💖");
+    window.open("https://www.snapchat.com", "_blank");
+  });
+}
+
+
+function noClick(){
+  document.getElementById("reply").innerText =
+  "😌 Even if you say no, my heart already chose you 💕";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Beautiful Memories 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#ff416c,#ff758c,#ffb3ba);
+  color:#fff;
+  padding:30px 15px;
+}
+
+/* Floating Buttons */
+.floating-buttons{
+  position:fixed;
+  top:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:999;
+}
+
+.floating-buttons button,
+.floating-buttons a{
+  padding:12px 20px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#fff,#ffe6f2);
+  color:#ff416c;
+  font-weight:600;
+  font-size:15px;
+  cursor:pointer;
+  text-decoration:none;
+  box-shadow:0 8px 18px rgba(0,0,0,0.25);
+  transition:0.3s;
+}
+
+.floating-buttons button:hover,
+.floating-buttons a:hover{
+  transform:scale(1.08);
+}
+
+/* Page Container */
+.page{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+}
+
+/* Heading */
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:3.5rem;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  font-size:1.2rem;
+  max-width:700px;
+  margin:0 auto 30px;
+  line-height:1.6;
+  opacity:0.95;
+}
+
+/* Gallery Grid */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+/* Gallery Card */
+.gallery img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.35);
+  transition:0.4s ease;
+  cursor:pointer;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+  box-shadow:0 20px 40px rgba(0,0,0,0.45);
+}
+.gallery video{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+/* Footer text */
+.footer-text{
+  margin-top:40px;
+  font-size:1.1rem;
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+  <button onclick="toggleMusic()">🎶 Music</button>
+  <!-- CHANGE href to your page (proposal.html / index.html etc.) -->
+  <a href="dance.html">👉 Click Here</a>
+</div>
+
+<div class="page">
+
+  <h1>💖 Our Beautiful Gallery 💖</h1>
+  <p class="subtitle">
+    Every picture holds a memory,  
+    every memory holds a piece of my heart 🌹
+  </p>
+
+  <div class="gallery">
+
+  <!-- Images -->
+  <img src="valentine day image/red white.jpeg" alt="Love moment">
+
+  <img src="valentine day image/WhatsApp Image 2026-02-08 at 10.57.02 PM (1).jpeg" alt="Roses">
+
+  <img src="valentine day image/WhatsApp Image 2026-02-08 at 10.57.02 PM.jpeg" alt="Romantic sunset">
+
+  <img src="valentine day image/WhatsApp Image 2026-02-08 at 10.57.06 PM (2).jpeg" alt="Heart shape">
+
+  <img src="valentine day image/WhatsApp Image 2026-02-08 at 10.57.06 PM (1).jpeg" alt="Candle light">
+
+  <!-- Videos -->
+  <video src="valentine day image/birthday uska.mp4"
+         controls
+         muted
+         playsinline>
+  </video>
+
+  <video src="valentine day image/WhatsApp Video 2026-02-08 at 10.57.05 PM.mp4"
+         controls
+         muted
+         playsinline>
+  </video>
+
+  <video src="valentine day image/WhatsApp Video 2026-02-08 at 10.57.02 PM.mp4"
+         controls
+         muted
+         playsinline>
+  </video>
+
+</div>
+
+
+  <p class="footer-text">
+    💕 Some moments are captured in photos,  
+    but the best ones are captured in the heart.
+  </p>
+
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <source src="rani teri.mp4">
+</audio>
+
+<script>
+let isPlaying=false;
+
+function toggleMusic(){
+  let music=document.getElementById("bgMusic");
+  if(isPlaying){
+    music.pause();
+  }else{
+    music.play();
+  }
+  isPlaying=!isPlaying;
+}
+</script>
+
+</body>
+</html>
